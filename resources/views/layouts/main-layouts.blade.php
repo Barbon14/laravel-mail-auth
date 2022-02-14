@@ -9,22 +9,25 @@
     <title>@yield('title', 'Titolo')</title>
 </head>
 <body>
-    @include('components.header')
+    <div id="app">
 
-    <main>
-        @if ($errors->any()) 
-            <div class="alert alert-danger"> 
-                <ul> 
-                    @foreach ($errors->all() as $error) 
-                        <li>{{ $error }}</li> 
-                    @endforeach 
-                </ul> 
-            </div> 
-        @endif
-
-        @yield('content')
-    </main>
-
-    @include('components.footer')    
+        @include('components.header')
+    
+        <main>
+            @if ($errors->any()) 
+                <div class="alert alert-danger"> 
+                    <ul> 
+                        @foreach ($errors->all() as $error) 
+                            <li>{{ $error }}</li> 
+                        @endforeach 
+                    </ul> 
+                </div> 
+            @endif
+    
+            @yield('content')
+        </main>
+    
+        @include('components.footer')    
+    </div>
 </body>
 </html>
