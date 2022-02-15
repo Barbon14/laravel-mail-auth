@@ -1928,6 +1928,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1943,6 +1953,14 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         return console.error(e);
       });
+    },
+    deleteGame: function deleteGame(id) {
+      axios.get("/api/game/delete/".concat(id)).then(function (r) {
+        return console.log(r.data);
+      })["catch"](function (e) {
+        return console.error(e);
+      });
+      this.getGamesList();
     }
   },
   mounted: function mounted() {
@@ -37549,15 +37567,31 @@ var render = function () {
             _c(
               "ul",
               _vm._l(_vm.gamesList, function (game, i) {
-                return _c("li", { key: "game-" + i }, [
+                return _c("li", { key: "game-" + i, staticClass: "m-3" }, [
                   _vm._v(
                     "\n                            " +
                       _vm._s(game.title) +
-                      " - " +
+                      " \n                            - " +
                       _vm._s(game.subtitle) +
-                      " - " +
+                      " \n                            - " +
                       _vm._s(game.rating) +
-                      "\n                        "
+                      "\n                            "
+                  ),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger mx-2",
+                      on: {
+                        click: function ($event) {
+                          return _vm.deleteGame(game.id)
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Delete\n                            "
+                      ),
+                    ]
                   ),
                 ])
               }),

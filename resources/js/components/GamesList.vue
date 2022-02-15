@@ -7,8 +7,18 @@
 
                     <div class="card-body">
                         <ul>
-                            <li v-for="game, i in gamesList" :key="`game-${i}`">
-                                {{ game.title }} - {{ game.subtitle}} - {{ game.rating }}
+                            <li 
+                            class="m-3"
+                            v-for="game, i in gamesList" 
+                            :key="`game-${i}`">
+                                {{ game.title }} 
+                                - {{ game.subtitle}} 
+                                - {{ game.rating }}
+                                <button 
+                                class="btn btn-danger mx-2" 
+                                @click="deleteGame(game.id)">
+                                    Delete
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -36,6 +46,14 @@
                 .then(r => this.gamesList = r.data)
                 .catch(e => console.error(e));
             },
+
+            deleteGame(id) {
+                axios
+                .get(`/api/game/delete/${id}`)
+                .then(r => console.log(r.data))
+                .catch(e => console.error(e));
+                this.getGamesList();
+            }
         },
 
         mounted() {
