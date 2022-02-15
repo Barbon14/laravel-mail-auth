@@ -25,3 +25,5 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
+
+Route::get('/api/games/list', 'ApiController@getGames')->name('api.games.list');
