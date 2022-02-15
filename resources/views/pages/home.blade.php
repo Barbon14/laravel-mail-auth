@@ -12,7 +12,7 @@
         <h2>Ciao {{ Auth::user() -> name }}!</h2>
         <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
 
-        <example-component></example-component>
+        <games-list></games-list>
 
     @else
 
