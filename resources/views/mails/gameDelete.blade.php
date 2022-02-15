@@ -1,1 +1,1 @@
-test
+È stato eliminito il gioco {{ $game -> title }} - {{ $game -> subtitle }} - {{ $game -> rating }}

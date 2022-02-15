@@ -11,21 +11,13 @@ class GameDeleteMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
+    public $game;
+
+    public function __construct($game) {
+
+        $this-> game = $game;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this -> from('no-reply@miosito.com')
